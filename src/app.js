@@ -7,7 +7,7 @@ const asociadosRoutes = require('./routes/asociados');
 app.use(express.static(path.resolve(__dirname,'../public')));
 app.set('view engine', 'ejs');
 
-app.listen(3001, console.log('Server running on port 3001'));
+app.listen(80, console.log('Server running on port 80'));
 
 app.use('/', mainRoutes);
 app.use('/asociados', asociadosRoutes);
