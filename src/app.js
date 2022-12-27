@@ -5,6 +5,7 @@ const fs = require('fs');
 const https = require('https');
 const mainRoutes = require('./routes/main');
 const asociadosRoutes = require('./routes/asociados');
+const notFound = require('./routes/notFound');
 
 app.use(express.static(path.resolve(__dirname,'../public')));
 app.set('view engine', 'ejs');
@@ -30,4 +31,8 @@ https.createServer({
 
 app.use('/', mainRoutes);
 app.use('/asociados', asociadosRoutes);
+
+app.use((req, res, next) => {
+    res.status(404).render('./views/notFound');
+   })
 
